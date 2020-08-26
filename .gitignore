@@ -1,0 +1,19 @@
+# Build/test output
+obj
+bin
+CSharp/bin
+CSharp/obj
+
+.vscode
+.ionide
+*.pdb
+*.orig
+*.apk
+.vs/
+app.config
+.idea
+Thumbs.db
+*.Cache
+
+
+.fake
