@@ -100,9 +100,9 @@ namespace Stock.Examples
             System.Console.WriteLine($"{nameof(SolveWithLINQ)} answer: {result}");
         }
 
-        class StockDailyInfo : IComparable
+        struct StockDailyInfo : IComparable
         {
-            #region StockDailyInfo Object
+            #region StockDailyInfo fields
             string date { get; }
             double openPrice { get; }
             double closePrice { get; }
@@ -116,7 +116,7 @@ namespace Stock.Examples
 
             #endregion
 
-            public override string ToString() => $"{date} - variance = {dailyVariance:N3}";
+            public override string ToString() => $"{date} had variance = {dailyVariance:N3}";
 
             #region Daily Variance
             //4. Calculate the daily variance
@@ -124,9 +124,10 @@ namespace Stock.Examples
 
             int IComparable.CompareTo(object obj)
             {
-                var rowData = obj as StockDailyInfo;
+                var rowData = (StockDailyInfo)obj;
                 return this.dailyVariance.CompareTo(rowData.dailyVariance);
             }
+
             #endregion
         }
     }
