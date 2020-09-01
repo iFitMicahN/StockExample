@@ -100,7 +100,7 @@ namespace Stock.Examples
             System.Console.WriteLine($"{nameof(SolveWithLINQ)} answer: {result}");
         }
 
-        struct StockDailyInfo : IComparable
+        class StockDailyInfo : IComparable
         {
             #region StockDailyInfo fields
             string date { get; }
