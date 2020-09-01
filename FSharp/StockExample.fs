@@ -35,10 +35,9 @@ module StockExample =
     }
     
     let splitCommas (x:string) = x.Split([|','|])
-    let parseDouble str = System.Double.Parse str
     
     let captureRelevantData (stockDailyInfo : string[]) = 
-        { Date = stockDailyInfo.[0]; OpenPrice = parseDouble stockDailyInfo.[1]; ClosePrice = parseDouble stockDailyInfo.[4] }
+        { Date = stockDailyInfo.[0]; OpenPrice = Double.Parse stockDailyInfo.[1]; ClosePrice = Double.Parse stockDailyInfo.[4] }
     
     let calcDailyVariance dailyData =
         dailyData.OpenPrice - dailyData.ClosePrice |> abs
