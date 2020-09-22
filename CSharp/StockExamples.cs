@@ -39,7 +39,7 @@ namespace Stock.Examples
         public static string CorrectAnswer = "2012-03-13";
     }
 
-    class StockExampleForLoops
+    class StockExampleCSharp
     {
         static void Main(string[] args)
         {
@@ -65,13 +65,13 @@ namespace Stock.Examples
             // 1. Skip the header -> start at i = 1
             for (int i = 1; i < StockDataProvider.StockData.Count - 1; i++)
             {
-                var rowStockData = StockDataProvider.StockData[i]; // "2012-03-28,32.52,32.70,32.04,32.19,41344800,32.19",
+                var rowStockData = StockDataProvider.StockData[i];
                 // 2. Split the data by comma
-                var rowElements = rowStockData.Split(','); // ["2012-03-28","32.52","32.19"]
+                var rowElements = rowStockData.Split(',');
                 // 3. Pull out relevant data
-                var date = rowElements[0]; // "2012-03-28"
-                var openPrice = Double.Parse(rowElements[1]); //32.52
-                var closePrice = Double.Parse(rowElements[4]); //32.19
+                var date = rowElements[0];
+                var openPrice = Double.Parse(rowElements[1]);
+                var closePrice = Double.Parse(rowElements[4]);
                 // 4. Calculate the daily variance
                 var variance = Math.Abs(openPrice - closePrice);
                 // 5. Find the max variance
@@ -103,9 +103,9 @@ namespace Stock.Examples
         class StockDailyInfo : IComparable
         {
             #region StockDailyInfo fields
-            string date { get; }
-            double openPrice { get; }
-            double closePrice { get; }
+            readonly string date;
+            readonly double openPrice;
+            readonly double closePrice;
 
             public StockDailyInfo(string date, string openPrice, string closePrice)
             {
